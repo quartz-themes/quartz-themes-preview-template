@@ -62,21 +62,6 @@ path[class~="typst-shape"] {
   }
 }
 
-article {
-  > mjx-container.MathJax,
-  blockquote > div > mjx-container.MathJax {
-    display: flex;
-    > svg {
-      margin-left: auto;
-      margin-right: auto;
-    }
-  }
-  blockquote > div > mjx-container.MathJax > svg {
-    margin-top: 1rem;
-    margin-bottom: 1rem;
-  }
-}
-
 strong {
   font-weight: $semiBoldWeight;
 }
@@ -260,7 +245,6 @@ a {
         padding: 0;
         & > * {
           flex: 1;
-          max-height: 24rem;
         }
         & > .toc {
           display: none;
@@ -584,8 +568,8 @@ video {
 }
 
 div:has(> .overflow) {
+  display: flex;
   max-height: 100%;
-  overflow-y: hidden;
 }
 
 ul.overflow,
@@ -600,7 +584,7 @@ ol.overflow {
   clear: both;
 
   & > li.overflow-end {
-    height: 0.5rem;
+    height: 1rem;
     margin: 0;
   }
 

@@ -77,31 +77,7 @@ function renderTranscludes(
       const classNames = (node.properties?.className ?? []) as string[]
       if (classNames.includes("transclude")) {
         const inner = node.children[0] as Element
-        const transcludeTarget = (inner.properties["data-slug"] ?? slug) as FullSlug
-        if (visited.has(transcludeTarget)) {
-          console.warn(
-            styleText(
-              "yellow",
-              `Warning: Skipping circular transclusion: ${slug} -> ${transcludeTarget}`,
-            ),
-          )
-          node.children = [
-            {
-              type: "element",
-              tagName: "p",
-              properties: { style: "color: var(--secondary);" },
-              children: [
-                {
-                  type: "text",
-                  value: `Circular transclusion detected: ${transcludeTarget}`,
-                },
-              ],
-            },
-          ]
-          return
-        }
-        visited.add(transcludeTarget)
-
+        const transcludeTarget = inner.properties["data-slug"] as FullSlug
         const page = componentData.allFiles.find((f) => f.slug === transcludeTarget)
         if (!page) {
           return

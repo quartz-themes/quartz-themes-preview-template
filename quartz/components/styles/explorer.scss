@@ -122,10 +122,6 @@ button.desktop-explorer {
     margin: 0;
     padding: 0;
 
-    &.explorer-ul {
-      overscroll-behavior: contain;
-    }
-
     & li > a {
       color: var(--dark);
       opacity: 0.75;
@@ -209,7 +205,6 @@ button.desktop-explorer {
   cursor: pointer;
   transition: transform 0.3s ease;
   backface-visibility: visible;
-  flex-shrink: 0;
 }
 
 li:has(> .folder-outer:not(.open)) > .folder-container > svg {
@@ -273,10 +268,22 @@ li:has(> .folder-outer:not(.open)) > .folder-container > svg {
   }
 }
 
-.mobile-no-scroll {
-  @media all and ($mobile) {
-    .explorer-content > .explorer-ul {
-      overscroll-behavior: contain;
-    }
+.no-scroll {
+  opacity: 0;
+  overflow: hidden;
+}
+
+html:has(.no-scroll) {
+  overflow: hidden;
+}
+
+@media all and not ($mobile) {
+  .no-scroll {
+    opacity: 1 !important;
+    overflow: auto !important;
+  }
+
+  html:has(.no-scroll) {
+    overflow: auto !important;
   }
 }
