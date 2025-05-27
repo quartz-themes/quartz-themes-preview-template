@@ -8,8 +8,8 @@
   }
 
   & > .search-button {
-    background-color: transparent;
-    border: 1px var(--lightgray) solid;
+    background-color: color-mix(in srgb, var(--lightgray) 60%, var(--light));
+    border: none;
     border-radius: 4px;
     font-family: inherit;
     font-size: inherit;
