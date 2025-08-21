@@ -45,15 +45,26 @@ ul,
 .katex,
 .math,
 .typst-doc,
-g[class~="typst-text"] {
+.typst-doc * {
   color: var(--darkgray);
   fill: var(--darkgray);
   overflow-wrap: break-word;
   text-wrap: pretty;
 }
 
-path[class~="typst-shape"] {
-  stroke: var(--darkgray);
+p,
+ul,
+text,
+a,
+li,
+ol,
+ul,
+.katex,
+.math,
+.typst-doc,
+.typst-doc * {
+  overflow-wrap: anywhere;
+  /* tr and td removed from list of selectors for overflow-wrap, allowing them to use default 'normal' property value */
 }
 
 .math {
