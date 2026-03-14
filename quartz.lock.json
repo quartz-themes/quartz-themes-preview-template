@@ -4,265 +4,254 @@
     "alias-redirects": {
       "source": "github:quartz-community/alias-redirects",
       "resolved": "https://github.com/quartz-community/alias-redirects.git",
-      "commit": "eca95445bedd9042fc2877f1df989610f3a80281",
-      "installedAt": "2026-03-18T00:13:05.823Z"
+      "commit": "774470e71436e9f2bf29745297037afe24c15b36",
+      "installedAt": "2026-03-14T20:39:33.765Z"
     },
     "article-title": {
       "source": "github:quartz-community/article-title",
       "resolved": "https://github.com/quartz-community/article-title.git",
-      "commit": "cab30b1d8b9d0faed42230e0ff207d46c850e976",
-      "installedAt": "2026-03-18T00:13:14.133Z"
+      "commit": "d76be945360b3664c16ee6c8f69346df5f77ce99",
+      "installedAt": "2026-03-14T20:39:34.243Z"
     },
     "backlinks": {
       "source": "github:quartz-community/backlinks",
       "resolved": "https://github.com/quartz-community/backlinks.git",
-      "commit": "b5a87bf9cc30a06bdd2f7e5239e6f2d16f9a61ae",
-      "installedAt": "2026-03-18T00:13:13.559Z"
+      "commit": "eecd82fc1175f0192bc5ff849c8ca3d1361a3a25",
+      "installedAt": "2026-03-14T20:39:34.761Z"
     },
     "bases-page": {
       "source": "github:quartz-community/bases-page",
       "resolved": "https://github.com/quartz-community/bases-page.git",
-      "commit": "9ccbaf3a5c86f6195ae47090c30c04a94e785def",
-      "installedAt": "2026-03-18T00:13:20.917Z"
+      "commit": "953afb17498ef24475ab9c8c5d14afeb5d29cfdd",
+      "installedAt": "2026-03-14T20:39:35.307Z"
     },
     "breadcrumbs": {
       "source": "github:quartz-community/breadcrumbs",
       "resolved": "https://github.com/quartz-community/breadcrumbs.git",
-      "commit": "fe32923b121df337c0743e05aa05c0983ad5870e",
-      "installedAt": "2026-03-18T00:13:17.584Z"
+      "commit": "a188cf8182c9ccbda1f05fc62b98e1cec028f861",
+      "installedAt": "2026-03-14T20:39:35.734Z"
     },
     "canvas-page": {
       "source": "github:quartz-community/canvas-page",
       "resolved": "https://github.com/quartz-community/canvas-page.git",
-      "commit": "140fd726b61db152609352a7ea52bead7f7386f3",
-      "installedAt": "2026-03-18T00:13:09.015Z"
+      "commit": "2bb8ba4d080c1eeeef61e17ad91ebe0bbeafbfa3",
+      "installedAt": "2026-03-14T20:39:36.370Z"
     },
     "citations": {
       "source": "github:quartz-community/citations",
       "resolved": "https://github.com/quartz-community/citations.git",
-      "commit": "503136d4f3eabddf94053f496584c192ca6c7c2e",
-      "installedAt": "2026-03-18T00:13:00.774Z"
+      "commit": "8944276eb26eea5e3e7b8a916ef1922364210ff2",
+      "installedAt": "2026-03-14T20:39:36.791Z"
     },
     "cname": {
       "source": "github:quartz-community/cname",
       "resolved": "https://github.com/quartz-community/cname.git",
-      "commit": "605bacb6d0d4cc70adc5007d6ec2bcce025c338a",
-      "installedAt": "2026-03-18T00:13:08.259Z"
+      "commit": "7f795680dbf5e32e25bfdeb9bf0b4aee8d11966d",
+      "installedAt": "2026-03-14T20:39:37.336Z"
     },
     "comments": {
       "source": "github:quartz-community/comments",
       "resolved": "https://github.com/quartz-community/comments.git",
-      "commit": "d5ab417f031747aa98c6b6ee601c456cf6c42954",
-      "installedAt": "2026-03-18T00:13:18.409Z"
+      "commit": "f52fe5335f7f028bb2e379b892ca88b1a8bcebab",
+      "installedAt": "2026-03-14T20:39:37.878Z"
     },
     "content-index": {
       "source": "github:quartz-community/content-index",
       "resolved": "https://github.com/quartz-community/content-index.git",
-      "commit": "264a606cef11d5db262a05499d4d6176978f849b",
-      "installedAt": "2026-03-18T00:13:06.487Z"
+      "commit": "8fc1aa6d1e928ed330bbc9f0925d01569a7a4fd8",
+      "installedAt": "2026-03-14T20:39:38.315Z"
     },
     "content-meta": {
       "source": "github:quartz-community/content-meta",
       "resolved": "https://github.com/quartz-community/content-meta.git",
-      "commit": "18cf785f5256ae04e5e7a4c2101f471a8d3dffc1",
-      "installedAt": "2026-03-18T00:13:14.712Z"
+      "commit": "2fa96b3707b8e1938a76e296194522bc3a52131d",
+      "installedAt": "2026-03-14T20:39:38.938Z"
     },
     "content-page": {
       "source": "github:quartz-community/content-page",
       "resolved": "https://github.com/quartz-community/content-page.git",
-      "commit": "05dafc76cbf1d8090fa45d3493cafd10cd4dd3e0",
-      "installedAt": "2026-03-18T00:13:09.530Z"
+      "commit": "7066328215a6c43b0c55ac48f46321bc47e6833a",
+      "installedAt": "2026-03-14T20:39:39.404Z"
     },
     "crawl-links": {
       "source": "github:quartz-community/crawl-links",
       "resolved": "https://github.com/quartz-community/crawl-links.git",
-      "commit": "e8cde56d0ac2b75bd1a181afd75597c6356ebb5f",
-      "installedAt": "2026-03-18T00:12:57.612Z"
+      "commit": "b262f10e12ff6548c3c15f8e820f39561b612cb9",
+      "installedAt": "2026-03-14T20:39:39.933Z"
     },
     "created-modified-date": {
       "source": "github:quartz-community/created-modified-date",
       "resolved": "https://github.com/quartz-community/created-modified-date.git",
-      "commit": "e502846583bfe0789ecc1485db70d6a1a0569903",
-      "installedAt": "2026-03-18T00:12:54.403Z"
+      "commit": "0df39bb16ec3650ed1f2d157106328180b9f0aef",
+      "installedAt": "2026-03-14T20:39:40.339Z"
     },
     "darkmode": {
       "source": "github:quartz-community/darkmode",
       "resolved": "https://github.com/quartz-community/darkmode.git",
-      "commit": "c5fcce0f56e3da40ed8731806936492a567aef2e",
-      "installedAt": "2026-03-18T00:13:16.417Z"
+      "commit": "bde6df946e1571ae80f536c918f85a635cb5aed5",
+      "installedAt": "2026-03-14T20:39:40.810Z"
     },
     "description": {
       "source": "github:quartz-community/description",
       "resolved": "https://github.com/quartz-community/description.git",
-      "commit": "f8927f7a4c139ba111c2a823169cfee8168f783d",
-      "installedAt": "2026-03-18T00:12:58.116Z"
+      "commit": "b1194e265c7fa9b9a1eff441493ad5759fc281f8",
+      "installedAt": "2026-03-14T20:39:41.450Z"
     },
     "encrypted-pages": {
       "source": "github:quartz-community/encrypted-pages",
       "resolved": "https://github.com/quartz-community/encrypted-pages.git",
-      "commit": "e9f6ed7e9b21c9ee37ed2a4e6ab26c27a1c90a2b",
-      "installedAt": "2026-03-18T00:13:04.271Z"
+      "commit": "513e5a33b71d694a68d294695ee7ef922a2e17ea",
+      "installedAt": "2026-03-14T20:39:42.051Z"
     },
     "explicit-publish": {
       "source": "github:quartz-community/explicit-publish",
       "resolved": "https://github.com/quartz-community/explicit-publish.git",
-      "commit": "2446bfc9d82beb21ae652481fcd952c87bf4af42",
-      "installedAt": "2026-03-18T00:13:03.745Z"
+      "commit": "8974fddb98452987f6d55cc7994c31f163e88515",
+      "installedAt": "2026-03-14T20:39:42.572Z"
     },
     "explorer": {
       "source": "github:quartz-community/explorer",
       "resolved": "https://github.com/quartz-community/explorer.git",
-      "commit": "aa4a745fbce192866078a9e241e073ace97f28af",
-      "installedAt": "2026-03-18T00:13:11.554Z"
+      "commit": "d2d095d90932e76f6b9249f8248e3c265fd10c64",
+      "installedAt": "2026-03-14T20:39:43.202Z"
     },
     "favicon": {
       "source": "github:quartz-community/favicon",
       "resolved": "https://github.com/quartz-community/favicon.git",
-      "commit": "9e658e67cbe0c51f5ac3c1c7001c595c79e73c9c",
-      "installedAt": "2026-03-18T00:13:07.070Z"
+      "commit": "b19f79df4f3d6e393a0ecbd6e68d468dd04c62c5",
+      "installedAt": "2026-03-14T20:39:43.781Z"
     },
     "folder-page": {
       "source": "github:quartz-community/folder-page",
       "resolved": "https://github.com/quartz-community/folder-page.git",
-      "commit": "964ee8c7d7fe744d488877617cfaa0b1d846f906",
-      "installedAt": "2026-03-18T00:13:10.352Z"
+      "commit": "d0baedb643fdc8555a5727897d0f43f43e82ef0b",
+      "installedAt": "2026-03-14T20:39:44.186Z"
     },
     "footer": {
       "source": "github:quartz-community/footer",
       "resolved": "https://github.com/quartz-community/footer.git",
-      "commit": "db220194183be5e036ede0a7bf758133e490ecaf",
-      "installedAt": "2026-03-18T00:13:18.961Z"
+      "commit": "5b65370810b917b58418250951655f756c6f24bf",
+      "installedAt": "2026-03-14T20:39:44.611Z"
     },
     "github-flavored-markdown": {
       "source": "github:quartz-community/github-flavored-markdown",
       "resolved": "https://github.com/quartz-community/github-flavored-markdown.git",
-      "commit": "4885c8bcdc991f4b6f92d88c3ad896c385c39319",
-      "installedAt": "2026-03-18T00:12:56.403Z"
+      "commit": "ac928b7e98a639070249e049c7846da4a6edf682",
+      "installedAt": "2026-03-14T20:39:45.047Z"
     },
     "graph": {
       "source": "github:quartz-community/graph",
       "resolved": "https://github.com/quartz-community/graph.git",
-      "commit": "d0f33cf0c004706dc17ab79edc82119b527ab356",
-      "installedAt": "2026-03-18T00:13:12.230Z"
+      "commit": "1e23ee31bbfc5123a3573b7ff126af36b46b7101",
+      "installedAt": "2026-03-14T20:39:45.581Z"
     },
     "hard-line-breaks": {
       "source": "github:quartz-community/hard-line-breaks",
       "resolved": "https://github.com/quartz-community/hard-line-breaks.git",
-      "commit": "2dc8d0fe0912205f5c41f7d79d301e449497edc6",
-      "installedAt": "2026-03-18T00:13:01.362Z"
+      "commit": "6952401c38dbe93b6b7a63b26d049ec4c620607a",
+      "installedAt": "2026-03-14T20:39:46.011Z"
     },
     "latex": {
       "source": "github:quartz-community/latex",
       "resolved": "https://github.com/quartz-community/latex.git",
-      "commit": "7ff8d3a30de97a4c81a82f094231b19427f2129c",
-      "installedAt": "2026-03-18T00:12:59.908Z"
+      "commit": "6fb6f5aa48c8436511e75e140fc9816e9877c467",
+      "installedAt": "2026-03-14T20:39:46.559Z"
     },
     "note-properties": {
       "source": "github:quartz-community/note-properties",
       "resolved": "https://github.com/quartz-community/note-properties.git",
-      "commit": "71784b861f35a18e03411ebfc70a91d769290ed5",
-      "installedAt": "2026-03-18T00:13:21.462Z"
+      "commit": "0eaf5ae7f9de84351c318819e76368f744906084",
+      "installedAt": "2026-03-14T20:39:47.095Z"
     },
     "obsidian-flavored-markdown": {
       "source": "github:quartz-community/obsidian-flavored-markdown",
       "resolved": "https://github.com/quartz-community/obsidian-flavored-markdown.git",
-      "commit": "069abe5e504855b33b1520589f2b6daa955c5e61",
-      "installedAt": "2026-03-18T00:12:55.845Z"
+      "commit": "aee912d30fe271753676ecdd82ba3c72cf429f45",
+      "installedAt": "2026-03-14T20:39:47.764Z"
     },
     "og-image": {
       "source": "github:quartz-community/og-image",
       "resolved": "https://github.com/quartz-community/og-image.git",
-      "commit": "d63abb365d3533fd27706f4ddc3e895e02f4e001",
-      "installedAt": "2026-03-18T00:13:07.730Z"
+      "commit": "3c706b34c6ab14d023bdbfafcd9d4180d2d3a367",
+      "installedAt": "2026-03-14T20:39:48.243Z"
     },
     "ox-hugo": {
       "source": "github:quartz-community/ox-hugo",
       "resolved": "https://github.com/quartz-community/ox-hugo.git",
-      "commit": "5a60531958dc014258efdfdc002174fcaf12fe1c",
-      "installedAt": "2026-03-18T00:13:02.095Z"
+      "commit": "71a05562422b818507cc68dcdd950e7d4a44cde7",
+      "installedAt": "2026-03-14T20:39:48.810Z"
     },
     "page-title": {
       "source": "github:quartz-community/page-title",
       "resolved": "https://github.com/quartz-community/page-title.git",
-      "commit": "355e6c83dfede5b43c7e584f55d128a6630affba",
-      "installedAt": "2026-03-18T00:13:15.909Z"
-    },
-    "quartz-themes": {
-      "source": {
-        "name": "quartz-themes",
-        "repo": "https://github.com/saberzero1/quartz-themes.git",
-        "subdir": "plugin"
-      },
-      "resolved": "https://github.com/saberzero1/quartz-themes.git",
-      "commit": "b08eb9c48b713d29ec2cd93c52d48f1645e62ae5",
-      "subdir": "plugin",
-      "installedAt": "2026-03-18T00:14:27.947Z"
+      "commit": "b059af10659aeb4f26429fd7e2da8d9657ecaef8",
+      "installedAt": "2026-03-14T20:39:49.231Z"
     },
     "reader-mode": {
       "source": "github:quartz-community/reader-mode",
       "resolved": "https://github.com/quartz-community/reader-mode.git",
-      "commit": "2250ce03e9311f2a5a08e7173be67fa460ef54c7",
-      "installedAt": "2026-03-18T00:13:17.071Z"
+      "commit": "740ca9ae12d124dbae2e24b3cf0413037716dc9d",
+      "installedAt": "2026-03-14T20:39:49.668Z"
     },
     "recent-notes": {
       "source": "github:quartz-community/recent-notes",
       "resolved": "https://github.com/quartz-community/recent-notes.git",
-      "commit": "b72dc3c79ae91f452e0719b3d5fafdf94f699bb1",
-      "installedAt": "2026-03-18T00:13:19.594Z"
+      "commit": "edf7c6368d406be1c6af659523b4a3816f4bbfa1",
+      "installedAt": "2026-03-14T20:39:50.318Z"
     },
     "remove-draft": {
       "source": "github:quartz-community/remove-draft",
       "resolved": "https://github.com/quartz-community/remove-draft.git",
-      "commit": "c90abb32b634b21ec474f8f7f6167eb51192dbae",
-      "installedAt": "2026-03-18T00:13:03.233Z"
+      "commit": "1d6f78bb49fd5a14c4c434f942b0bada8000f015",
+      "installedAt": "2026-03-14T20:39:50.992Z"
     },
     "roam": {
       "source": "github:quartz-community/roam",
       "resolved": "https://github.com/quartz-community/roam.git",
-      "commit": "56680bd78e17a5672a26582ec41b02f0eaf9ff02",
-      "installedAt": "2026-03-18T00:13:02.623Z"
+      "commit": "4c3ef17cd885c347194db4df39672cc4381631c0",
+      "installedAt": "2026-03-14T20:39:51.527Z"
     },
     "search": {
       "source": "github:quartz-community/search",
       "resolved": "https://github.com/quartz-community/search.git",
-      "commit": "edb7dbb60165bd75a4b4266b027d098950a28c64",
-      "installedAt": "2026-03-18T00:13:12.936Z"
+      "commit": "439265283051e0ceb1d3deb0209b22f001bd3835",
+      "installedAt": "2026-03-14T20:39:52.067Z"
     },
     "spacer": {
       "source": "github:quartz-community/spacer",
       "resolved": "https://github.com/quartz-community/spacer.git",
-      "commit": "40b755dd3fa68563e2a085fa96689a9329118a3b",
-      "installedAt": "2026-03-18T00:13:20.210Z"
+      "commit": "2cd3e24603ce9c9026e21f6aebe1fb1fce36df7b",
+      "installedAt": "2026-03-14T20:39:52.502Z"
     },
     "stacked-pages": {
       "source": "github:quartz-community/stacked-pages",
       "resolved": "https://github.com/quartz-community/stacked-pages.git",
-      "commit": "4c112f557d8f742797e32f0f90ffc71949ef61e8",
-      "installedAt": "2026-03-18T00:13:05.089Z"
+      "commit": "333addc29803bb2d6afc81056a2f4653b9280bd2",
+      "installedAt": "2026-03-14T20:39:52.935Z"
     },
     "syntax-highlighting": {
       "source": "github:quartz-community/syntax-highlighting",
       "resolved": "https://github.com/quartz-community/syntax-highlighting.git",
-      "commit": "3e3cd1c820fe4378c0751c9cd5ddf0a4f043c348",
-      "installedAt": "2026-03-18T00:12:55.195Z"
+      "commit": "eaeec550d8ada3a8fb0ff157f6297744e5c1064e",
+      "installedAt": "2026-03-14T20:39:53.575Z"
     },
     "table-of-contents": {
       "source": "github:quartz-community/table-of-contents",
       "resolved": "https://github.com/quartz-community/table-of-contents.git",
-      "commit": "da9185a92fe85f272e15fb7c3712bb5ed25891b9",
-      "installedAt": "2026-03-18T00:12:57.033Z"
+      "commit": "787960a77c40e1c063be6cb34cb6c8426f94bf26",
+      "installedAt": "2026-03-14T20:39:54.086Z"
     },
     "tag-list": {
       "source": "github:quartz-community/tag-list",
       "resolved": "https://github.com/quartz-community/tag-list.git",
-      "commit": "a101e4c7d77f154f7729b9b58dbddacb04e114ed",
-      "installedAt": "2026-03-18T00:13:15.319Z"
+      "commit": "92ec459090bd3e6772848e67c3f846c1bed6021c",
+      "installedAt": "2026-03-14T20:39:54.611Z"
     },
     "tag-page": {
       "source": "github:quartz-community/tag-page",
       "resolved": "https://github.com/quartz-community/tag-page.git",
-      "commit": "7756ff7deba5eadd65dec75b3c71449a9e751dcb",
-      "installedAt": "2026-03-18T00:13:10.991Z"
+      "commit": "14c6b14df3c5d59c593eadb1d4fc1187e00b788e",
+      "installedAt": "2026-03-14T20:39:55.136Z"
     }
   }
 }
