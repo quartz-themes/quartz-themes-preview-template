@@ -9,7 +9,7 @@ on:
       - v5
 
 permissions:
-  contents: write
+  contents: read
   pages: write
   id-token: write
 
@@ -28,7 +28,7 @@ jobs:
           fetch-depth: 0 # Fetch all history for git info
       - uses: actions/setup-node@v5
         with:
-          node-version: 24
+          node-version: 22
       # - name: Cache dependencies
       #   uses: actions/cache@v5
       #   with:
@@ -45,18 +45,19 @@ jobs:
           restore-keys: |
             ${{ runner.os }}-plugins-
 
-      - name: Install updates
+      - name: Install dependencies
+        uses: nick-fields/retry@v3
+        with:
+          command: npm ci
+          timeout_minutes: 3
+          max_attempts: 3
+      - name: Restore plugins from lockfile
         uses: nick-fields/retry@v3
         with:
           command: |
-            git config --global user.email "github-actions[bot]@users.noreply.github.com"
-            git config --global user.name "github-actions[bot]"
-            npm install
-            npx quartz upgrade
+            rm -rf .quartz/plugins
             npx quartz plugin restore
-            npx quartz plugin update
-            git push
-          timeout_minutes: 3
+          timeout_minutes: 5
           max_attempts: 3
 
       - name: Build Quartz Docs
