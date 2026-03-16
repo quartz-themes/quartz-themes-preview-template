@@ -62,9 +62,16 @@ jobs:
       - name: Build Quartz Docs
         uses: nick-fields/retry@v3
         with:
-          command: npx quartz build -d docs
+          command: npx quartz build -d docs --verbose
           timeout_minutes: 5
           max_attempts: 3
+      - name: Verify root index.html exists
+        run: |
+          if [ ! -f public/index.html ]; then
+            echo "Missing public/index.html after build"
+            ls -la public
+            exit 1
+          fi
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
