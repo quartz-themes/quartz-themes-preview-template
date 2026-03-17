@@ -45,6 +45,12 @@ jobs:
           restore-keys: |
             ${{ runner.os }}-plugins-
 
+      - name: Force HTTPS for GitHub dependencies
+        run: |
+          git config --global url."https://github.com/".insteadOf "git@github.com:"
+          git config --global url."https://github.com/".insteadOf "ssh://git@github.com/"
+          git config --global url."https://github.com/".insteadOf "git://github.com/"
+
       - name: Install dependencies
         uses: nick-fields/retry@v3
         with:
