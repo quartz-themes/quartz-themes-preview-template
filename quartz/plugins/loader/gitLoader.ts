@@ -147,6 +147,36 @@ function extractRepoName(url: string): string {
   return match ? match[1] : "unknown"
 }
 
+async function installPluginDepsIfNeeded(
+  pluginDir: string,
+  pluginName: string,
+  options: { verbose?: boolean },
+): Promise<void> {
+  const pkgPath = path.join(pluginDir, "package.json")
+  if (!fs.existsSync(pkgPath)) return
+
+  try {
+    const pkg = JSON.parse(fs.readFileSync(pkgPath, "utf-8"))
+    const manifest = pkg.quartz ?? pkg.manifest ?? {}
+    if (!manifest.requiresInstall) return
+
+    if (options.verbose) {
+      console.log(styleText("cyan", `→`), `Installing native dependencies for ${pluginName}...`)
+    }
+
+    execSync("npm install --omit=dev --ignore-scripts=false", {
+      cwd: pluginDir,
+      stdio: options.verbose ? "inherit" : "pipe",
+      timeout: 60_000,
+    })
+  } catch {
+    console.warn(
+      styleText("yellow", `⚠`),
+      `Failed to install dependencies for ${pluginName}. Native features may not work.`,
+    )
+  }
+}
+
 /**
  * Collect native (peer) dependencies from a plugin that declares requiresInstall.
  */
@@ -748,6 +778,8 @@ export async function installPlugin(
   }
 
   buildInstalledPlugin(pluginDir, spec.name, options.verbose)
+
+  await installPluginDepsIfNeeded(pluginDir, spec.name, options)
 
   if (options.verbose) {
     console.log(styleText("green", `✓`), `Installed ${spec.name}`)
