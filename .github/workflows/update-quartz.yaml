@@ -39,7 +39,9 @@ jobs:
         run: npm ci
 
       - name: Run Quartz upgrade
-        run: npx quartz upgrade
+        run: |
+          npx quartz plugin restore
+          npx quartz upgrade
 
       - name: Commit and push changes (if any)
         run: |
