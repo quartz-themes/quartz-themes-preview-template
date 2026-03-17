@@ -61,8 +61,7 @@ jobs:
         uses: nick-fields/retry@v3
         with:
           command: |
-            rm -rf .quartz/plugins
-            npx quartz plugin restore
+            npx quartz plugin resolve
           timeout_minutes: 5
           max_attempts: 3
 
