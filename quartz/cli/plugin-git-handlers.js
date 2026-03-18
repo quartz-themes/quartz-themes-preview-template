@@ -367,7 +367,10 @@ export async function handlePluginInstall() {
       return ok
     })
     for (const ok of results) {
-      if (!ok) { failed++; installed-- }
+      if (!ok) {
+        failed++
+        installed--
+      }
     }
   }
 
@@ -963,7 +966,10 @@ export async function handlePluginRestore() {
       return ok
     })
     for (const ok of results) {
-      if (!ok) { failed++; installed-- }
+      if (!ok) {
+        failed++
+        installed--
+      }
     }
     await regeneratePluginIndex()
   }
