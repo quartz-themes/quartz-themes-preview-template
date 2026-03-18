@@ -76,18 +76,8 @@ export function parsePluginSource(source: PluginSource): GitPluginSpec {
       return { name, repo: resolved, local: true, subdir }
     }
 
-    // Expand shorthand formats in the repo field (e.g. "github:user/repo")
-    // by recursing through the string-based parsing path, then overlay
-    // the object-level fields (subdir, ref, name) on top.
-    const expanded = parsePluginSource(url)
-    const name = source.name ?? expanded.name
-    return {
-      name,
-      repo: expanded.repo,
-      ref: ref || expanded.ref || undefined,
-      subdir,
-      local: expanded.local,
-    }
+    const name = source.name ?? extractRepoName(url)
+    return { name, repo: url, ref: ref || undefined, subdir }
   }
 
   // Handle local paths
