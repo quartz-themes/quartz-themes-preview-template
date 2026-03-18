@@ -23,6 +23,25 @@ const INTERNAL_EXPORTS = new Set(["manifest", "default"])
 
 const execAsync = promisify(execCb)
 
+function cloneWithSubdir({ url, ref, subdir, pluginDir }) {
+  const tmpDir = fs.mkdtempSync(path.join(os.tmpdir(), "quartz-plugin-"))
+  try {
+    if (ref) {
+      execSync(`git clone --depth 1 --branch ${ref} "${url}" "${tmpDir}"`, { stdio: "ignore" })
+    } else {
+      execSync(`git clone --depth 1 "${url}" "${tmpDir}"`, { stdio: "ignore" })
+    }
+    const subdirPath = path.join(tmpDir, subdir)
+    if (!fs.existsSync(subdirPath)) {
+      throw new Error(`Subdirectory "${subdir}" not found in cloned repository`)
+    }
+    fs.cpSync(subdirPath, pluginDir, { recursive: true })
+    return getGitCommit(tmpDir)
+  } finally {
+    fs.rmSync(tmpDir, { recursive: true, force: true })
+  }
+}
+
 function buildPlugin(pluginDir, name) {
   try {
     const skipBuild = !needsBuild(pluginDir)
