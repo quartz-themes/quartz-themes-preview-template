@@ -76,8 +76,18 @@ export function parsePluginSource(source: PluginSource): GitPluginSpec {
       return { name, repo: resolved, local: true, subdir }
     }
 
-    const name = source.name ?? extractRepoName(url)
-    return { name, repo: url, ref: ref || undefined, subdir }
+    // Expand shorthand formats in the repo field (e.g. "github:user/repo")
+    // by recursing through the string-based parsing path, then overlay
+    // the object-level fields (subdir, ref, name) on top.
+    const expanded = parsePluginSource(url)
+    const name = source.name ?? expanded.name
+    return {
+      name,
+      repo: expanded.repo,
+      ref: ref || expanded.ref || undefined,
+      subdir,
+      local: expanded.local,
+    }
   }
 
   // Handle local paths
@@ -245,6 +255,129 @@ export function installNativeDeps(
         `  Error: ${message}`,
     )
     throw new Error(`Native dependency installation failed: ${message}`)
+  }
+}
+
+function isDistGitignored(pluginDir: string): boolean {
+  const gitignorePath = path.join(pluginDir, ".gitignore")
+  if (!fs.existsSync(gitignorePath)) return false
+
+  const lines = fs.readFileSync(gitignorePath, "utf-8").split("\n")
+  return lines.some((line) => {
+    const trimmed = line.trim()
+    return trimmed === "dist" || trimmed === "dist/" || trimmed === "/dist" || trimmed === "/dist/"
+  })
+}
+
+function needsBuild(pluginDir: string): boolean {
+  if (isDistGitignored(pluginDir)) return true
+  const distDir = path.join(pluginDir, "dist")
+  return !fs.existsSync(distDir)
+}
+
+function findPluginByPackageName(packageName: string): string | null {
+  if (!fs.existsSync(PLUGINS_CACHE_DIR)) return null
+
+  const plugins = fs.readdirSync(PLUGINS_CACHE_DIR).filter((entry) => {
+    const entryPath = path.join(PLUGINS_CACHE_DIR, entry)
+    return fs.statSync(entryPath).isDirectory()
+  })
+
+  for (const pluginDirName of plugins) {
+    const pkgPath = path.join(PLUGINS_CACHE_DIR, pluginDirName, "package.json")
+    if (!fs.existsSync(pkgPath)) continue
+    try {
+      const pkg = JSON.parse(fs.readFileSync(pkgPath, "utf-8"))
+      if (pkg.name === packageName) {
+        return path.join(PLUGINS_CACHE_DIR, pluginDirName)
+      }
+    } catch {}
+  }
+  return null
+}
+
+/**
+ * Symlink peer dependencies to the host Quartz node_modules so plugins
+ * share a single copy of packages like unified, vfile, preact, etc.
+ * @quartz-community/* peers resolve to co-installed sibling plugins instead.
+ */
+function linkPeerDependencies(pluginDir: string): void {
+  const pkgPath = path.join(pluginDir, "package.json")
+  if (!fs.existsSync(pkgPath)) return
+
+  const pkg = JSON.parse(fs.readFileSync(pkgPath, "utf-8"))
+  const peers: Record<string, string> = pkg.peerDependencies ?? {}
+
+  const quartzRoot = path.resolve(pluginDir, "..", "..", "..")
+  const hostNodeModules = path.join(quartzRoot, "node_modules")
+
+  for (const peerName of Object.keys(peers)) {
+    const peerNodeModulesPath = path.join(pluginDir, "node_modules", ...peerName.split("/"))
+    if (fs.existsSync(peerNodeModulesPath)) continue
+
+    if (peerName.startsWith("@quartz-community/")) {
+      const siblingPlugin = findPluginByPackageName(peerName)
+      if (!siblingPlugin) continue
+
+      const scopeDir = path.join(pluginDir, "node_modules", peerName.split("/")[0])
+      fs.mkdirSync(scopeDir, { recursive: true })
+
+      const target = path.relative(scopeDir, siblingPlugin)
+      fs.symlinkSync(target, peerNodeModulesPath, "dir")
+      continue
+    }
+
+    const hostPeerPath = path.join(hostNodeModules, ...peerName.split("/"))
+    if (!fs.existsSync(hostPeerPath)) continue
+
+    const parts = peerName.split("/")
+    if (parts.length > 1) {
+      const scopeDir = path.join(pluginDir, "node_modules", parts[0])
+      fs.mkdirSync(scopeDir, { recursive: true })
+    } else {
+      fs.mkdirSync(path.join(pluginDir, "node_modules"), { recursive: true })
+    }
+
+    const target = path.relative(path.dirname(peerNodeModulesPath), hostPeerPath)
+    fs.symlinkSync(target, peerNodeModulesPath, "dir")
+  }
+}
+
+function buildInstalledPlugin(pluginDir: string, name: string, verbose?: boolean): void {
+  try {
+    const shouldBuild = needsBuild(pluginDir)
+
+    if (verbose) {
+      console.log(styleText("cyan", `→`), `${name}: installing dependencies...`)
+    }
+    execSync("npm install --ignore-scripts", {
+      cwd: pluginDir,
+      stdio: verbose ? "inherit" : "pipe",
+      timeout: 120_000,
+    })
+
+    if (shouldBuild) {
+      if (verbose) {
+        console.log(styleText("cyan", `→`), `${name}: building...`)
+      }
+      execSync("npm run build", {
+        cwd: pluginDir,
+        stdio: verbose ? "inherit" : "pipe",
+        timeout: 120_000,
+      })
+    }
+
+    execSync("npm prune --omit=dev", {
+      cwd: pluginDir,
+      stdio: verbose ? "inherit" : "pipe",
+      timeout: 60_000,
+    })
+
+    linkPeerDependencies(pluginDir)
+  } catch (error) {
+    const message = error instanceof Error ? error.message : String(error)
+    console.error(styleText("red", `✗`), `${name}: post-install build failed: ${message}`)
+    throw new Error(`Failed to build plugin ${name}: ${message}`)
   }
 }
 
@@ -575,9 +708,6 @@ export async function installPlugin(
       } catch {
         // If git operations fail, re-clone
       }
-      return { pluginDir, nativeDeps: collectNativeDeps(pluginDir) }
-    } catch {
-      // If git operations fail, re-clone
     }
   }
 
